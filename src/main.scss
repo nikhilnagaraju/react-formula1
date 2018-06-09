@@ -1,0 +1,24 @@
+$font_path: '../assets/fonts';
+
+@font-face {
+  font-family: 'Titillium';
+  src: url('#{$font_path}/titillium-web-regular.woff2') format('woff2'),
+  url('#{$font_path}/titillium-web-regular.woff') format('woff'),
+  url('#{$font_path}/titillium-web-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SquadaOne';
+  src: url('#{$font_path}/squada-one-regular.woff2') format('woff2'),
+  url('#{$font_path}/squada-one-regular.woff') format('woff'),
+  url('#{$font_path}/squada-one-regular.ttf') format('truetype');
+}
+
+body {
+  font-family: Titillium, sans-serif;
+  padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: SquadaOne, sans-serif;
+}
