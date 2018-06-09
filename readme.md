@@ -1,10 +1,10 @@
-# React Boilerplate
+# F1 Statistics
 
-A simple and straight forward React boilerplate project.
+This app displays some Formula 1 racing statistics, using the [Ergast Developer API](http://ergast.com/mrd/).
 
 # Yarn/NPM scripts
 
-The following Yarn scripts are a available for this boilerplate
+The following Yarn scripts are a available for this project.
 
 | Command | Description |
 | ------- | ----------- |
