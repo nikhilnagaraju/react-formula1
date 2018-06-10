@@ -1,12 +1,12 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { f1SeasonsReducer } from 'reducers/f1-seasons';
-// import { f1StandingsDriversReducer} from 'reducers/f1-standings/drivers/f1-standings-drivers.reducer';
+import { f1RacesReducer } from 'reducers/f1-races';
 
 export const store = createStore(
   combineReducers({
     f1Seasons: f1SeasonsReducer,
-    // f1StandingsDrivers: f1StandingsDriversReducer,
+    f1Races: f1RacesReducer,
   }),
   // eslint-disable-next-line no-underscore-dangle
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
