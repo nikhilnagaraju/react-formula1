@@ -33,6 +33,13 @@ export const App = () => (
             </Switch>
           </main>
           <footer className={styles.footer}>
+            <small>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://github.com/sparkbuzz/react-formula1">GitHub Source</a>
+            </small>
+            <span>&nbsp;|&nbsp;</span>
             <small>Powered by&nbsp;
               <a rel="noopener noreferrer" target="_blank" href="https://ergast.com/mrd/">Ergast API</a>
             </small>
