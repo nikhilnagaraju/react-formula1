@@ -1,6 +1,8 @@
 // @flow
 import { pathOr } from 'ramda';
 import { config } from 'config';
+import { store } from 'store';
+import { getDriverStandings } from 'actions/f1-standings/drivers';
 
 export const GET_SEASONS_SUCCESS = 'GET_SEASONS_SUCCESS';
 export const GET_SEASONS_FAILED = 'GET_SEASONS_FAILED';
@@ -13,7 +15,10 @@ const extractSeasons = data => pathOr([], ['MRData', 'SeasonTable', 'Seasons'], 
 /**
  * Action dispatched when season data is successfully fetched.
  */
-const getSeasonsSuccessAction = data => ({ type: GET_SEASONS_SUCCESS, data });
+const getSeasonsSuccessAction = (seasons) => {
+  seasons.map(({ season }) => store.dispatch(getDriverStandings(season)));
+  return { type: GET_SEASONS_SUCCESS, seasons };
+};
 
 /**
  * Action dispatched when season data fetch from Ergast API fails.
@@ -31,7 +36,7 @@ export const getSeasonsAction = () => ((dispatch) => {
     dispatch(getSeasonsSuccessAction(extractSeasons(data)));
   } else {
     // Fetch data from Ergast API
-    fetch(`${config.endpoint}/seasons.json?limit=100`)
+    fetch(`${config.endpoint}/seasons.json?limit=3`)
       .then((response) => {
         if (!response.ok || response.status >= 400) {
           return Promise.reject(Error('Unable to fetch F1 seasons from the Ergast API'));

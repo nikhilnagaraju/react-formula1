@@ -8,12 +8,13 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'function-paren-newline': ['error', 'consistent'],
+    'import/prefer-default-export': false,
     'jsx-a11y/anchor-is-valid': ['error', {
       components: ['Link'],
       specialLink: ['to'],
       aspects: ['noHref', 'invalidHref', 'preferButton'],
     }],
-    'import/prefer-default-export': false,
+    'max-len': [2, 120, 4],
   },
   settings: {
     'import/resolver': {

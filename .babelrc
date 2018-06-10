@@ -1,5 +1,5 @@
 {
-  "presets": [ "env", "flow", "react" ],
+  "presets": [ "env", "flow", "react", "stage-1" ],
   "plugins": [[
     "module-resolver", { "root": ["./src"] }
   ]]
