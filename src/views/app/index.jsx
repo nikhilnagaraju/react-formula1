@@ -13,12 +13,16 @@ export const App = () => (
       <Router>
         <Fragment>
           <header className={styles.header}>
-            <img src="/assets/images/f1_logo.svg" alt="Formula 1" />
-            <h1>Formula 1 Statistics</h1>
+            <div>
+              <img src="/assets/images/f1_logo.svg" alt="Formula 1" />
+              <h1>Formula 1 Statistics</h1>
+            </div>
           </header>
           <nav className={styles.navigation}>
-            <Link to="/seasons">Seasons List</Link>
-            <Link to="/season/2018">Current Season</Link>
+            <div>
+              <Link to="/seasons">Seasons List</Link>
+              <Link to="/season/2018">Current Season</Link>
+            </div>
           </nav>
           <main className={styles.main}>
             <Switch>
