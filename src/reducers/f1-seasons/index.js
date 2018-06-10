@@ -1,1 +1,1 @@
-export { default } from './f1-seasons.reducer';
+export { f1SeasonsReducer } from './f1-seasons.reducer';

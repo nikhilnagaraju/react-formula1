@@ -13,6 +13,7 @@ module.exports = {
       specialLink: ['to'],
       aspects: ['noHref', 'invalidHref', 'preferButton'],
     }],
+    'import/prefer-default-export': false,
   },
   settings: {
     'import/resolver': {

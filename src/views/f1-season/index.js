@@ -1,1 +1,1 @@
-export { default } from './f1-season';
+export { F1SeasonComponent } from './f1-season';

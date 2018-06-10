@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css';
-import App from 'views/app';
+import { App } from 'views/app';
 import './main.scss';
 
 let targetElement: Element = document.getElementById('app');
