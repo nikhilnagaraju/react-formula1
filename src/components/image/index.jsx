@@ -4,6 +4,7 @@ const Props = {
   alt: String,
   fallback: String,
   src: String,
+  error: Boolean,
 };
 
 export class Image extends Component<Props> {
@@ -13,11 +14,25 @@ export class Image extends Component<Props> {
     this.state = { src: props.src };
   }
 
+  // noinspection JSUnusedGlobalSymbols
+  static getDerivedStateFromProps(props, state) {
+    if (props.src !== state.src) {
+      return { src: props.src };
+    }
+    return null;
+  }
+
   onError() {
-    this.setState({ src: this.props.fallback });
+    this.setState({ error: true });
   }
 
   render() {
-    return <img onError={this.onError} src={this.state.src} alt={this.props.alt} />;
+    return (
+      <img
+        onError={this.onError}
+        src={this.state.error ? this.props.fallback : this.state.src}
+        alt={this.props.alt}
+      />
+    );
   }
 }
