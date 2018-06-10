@@ -10,4 +10,4 @@ const mapDispatchToProps = dispatch => ({
   getSeasons: () => dispatch(getSeasonsAction()),
 });
 
-export const F1SeasonsConnected = connect(mapStateToProps, mapDispatchToProps)(F1SeasonsList);
+export const F1SeasonsListConnected = connect(mapStateToProps, mapDispatchToProps)(F1SeasonsList);

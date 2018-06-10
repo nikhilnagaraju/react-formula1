@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
-import { F1SeasonsConnected } from 'views/f1-seasons';
+import { F1SeasonsListConnected } from 'views/f1-seasons-list';
 import { F1SeasonDetailConnected } from 'views/f1-season-detail';
 import { NotFound } from 'views/not-found';
 import { store } from 'store';
@@ -18,7 +18,7 @@ export const App = () => (
             <Link to="/season/2018">Current Season</Link>
           </nav>
           <Switch>
-            <Route exact path="/seasons" component={F1SeasonsConnected} />
+            <Route exact path="/seasons" component={F1SeasonsListConnected} />
             <Route exact path="/season/:year" component={F1SeasonDetailConnected} />
             <Redirect exact from="/" to="/seasons" />
             <Route component={NotFound} />
