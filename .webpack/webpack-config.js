@@ -85,7 +85,7 @@ const webpackConfig = {
   plugins: [
     // Configure HTML template
     new HtmlWebpackPlugin({
-      title: 'React Boilerplate',
+      title: 'F1 Stats',
       meta: {
         charset: {
           name: 'charset',

@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
 import { F1SeasonsConnected } from 'views/f1-seasons';
-import { F1SeasonComponent } from 'views/f1-season';
-import { NotFoundComponent } from 'views/not-found';
+import { F1SeasonDetail } from 'views/f1-season';
+import { NotFound } from 'views/not-found';
 import { store } from 'store';
 
 export const App = () => (
@@ -19,9 +19,9 @@ export const App = () => (
           </nav>
           <Switch>
             <Route exact path="/seasons" component={F1SeasonsConnected} />
-            <Route exact path="/season/:year" component={F1SeasonComponent} />
+            <Route exact path="/season/:year" component={F1SeasonDetail} />
             <Redirect exact from="/" to="/seasons" />
-            <Route component={NotFoundComponent} />
+            <Route component={NotFound} />
           </Switch>
         </Fragment>
       </Router>
