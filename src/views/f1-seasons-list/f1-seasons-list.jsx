@@ -26,11 +26,11 @@ export class F1SeasonsList extends Component<Props> {
             const { driver } = seasons[season];
             return (
               <li key={season}>
-                <Link to={`/season/${season}`}>{season}</Link>
-                <br />
-                <span>{driver.givenName} {driver.familyName}</span>
-                <br />
-                <span>{driver.nationality}</span>
+                <Link to={`/season/${season}`}>
+                  <h1 className={styles.date}>{season}</h1>
+                  <span>{driver.givenName} {driver.familyName}</span>
+                  <small>{driver.nationality}</small>
+                </Link>
               </li>
             );
           })}
