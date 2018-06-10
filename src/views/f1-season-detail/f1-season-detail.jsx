@@ -5,17 +5,24 @@ import { withRouter } from 'react-router-dom';
 type Props = {
   match: { params: { year: string } },
   races: Array,
+  season: Object,
   getRaceData: Function,
+  getSeasons: Function,
 }
 
 class F1SeasonDetailComponent extends Component<Props> {
   constructor(props) {
     super(props);
     props.getRaceData(props.match.params.year);
+    props.getSeasons();
   }
 
   render() {
-    const { races, match: { params: { year } } } = this.props;
+    const {
+      races,
+      season: { driver: champion } = { driver: '' },
+      match: { params: { year } },
+    } = this.props;
 
     return (
       <Fragment>
@@ -24,7 +31,10 @@ class F1SeasonDetailComponent extends Component<Props> {
           const winner = race.Results[0].Driver;
           const circuit = race.Circuit;
           return (
-            <li><b>{race.raceName}</b> - <b>{circuit.circuitName} </b> - {winner.givenName} {winner.familyName}</li>
+            <li key={race.raceName}>
+              {champion.driverId == winner.driverId && <span>*</span>}
+              <b>{race.raceName}</b> - <b>{circuit.circuitName} </b> - {winner.givenName} {winner.familyName}
+            </li>
           );
         })}
       </Fragment>
