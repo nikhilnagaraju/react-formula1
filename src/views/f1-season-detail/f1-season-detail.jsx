@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Image } from 'components/image';
 import styles from './f1-season-detail.scss';
 
 type Props = {
@@ -53,9 +54,15 @@ class F1SeasonDetailComponent extends Component<Props> {
                   className={champion.driverId === winner.driverId ? styles.champion : ''}
                 >
                   <td>
-                    {winner.givenName} {winner.familyName}
-                    <br />
-                    <small>{winner.nationality}</small>
+                    <Image
+                      src={`/assets/images/${winner.driverId}.png`}
+                      fallback='/assets/images/default.svg'
+                    />
+                    <p>
+                      <span>{winner.givenName} {winner.familyName}</span>
+                      <br />
+                      <small>{winner.nationality}</small>
+                    </p>
                   </td>
                   <td>
                     {race.raceName}
