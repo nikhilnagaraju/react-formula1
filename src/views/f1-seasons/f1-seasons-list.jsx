@@ -22,11 +22,18 @@ export class F1SeasonsList extends Component<Props> {
         <h2>F1 Seasons</h2>
         {seasons.error && <FlashMessage>{seasons.error}</FlashMessage>}
         <ol>
-          {seasons.length && seasons.map(({ season }) => (
-            <li key={season}>
-              <Link to={`/season/${season}`}>{season}</Link>
-            </li>
-          ))}
+          {seasons && Object.keys(seasons).map((season) => {
+            const { driver } = seasons[season];
+            return (
+              <li key={season}>
+                <Link to={`/season/${season}`}>{season}</Link>
+                <br />
+                <span>{driver.givenName} {driver.familyName}</span>
+                <br />
+                <span>{driver.nationality}</span>
+              </li>
+            );
+          })}
         </ol>
       </section>
     );

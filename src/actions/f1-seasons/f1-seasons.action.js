@@ -36,7 +36,7 @@ export const getSeasonsAction = () => ((dispatch) => {
     dispatch(getSeasonsSuccessAction(extractSeasons(data)));
   } else {
     // Fetch data from Ergast API
-    fetch(`${config.endpoint}/seasons.json?limit=3`)
+    fetch(`${config.endpoint}/seasons.json?limit=100`)
       .then((response) => {
         if (!response.ok || response.status >= 400) {
           return Promise.reject(Error('Unable to fetch F1 seasons from the Ergast API'));
