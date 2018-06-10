@@ -1,0 +1,43 @@
+.header {
+  background: #e00;
+
+  img {
+    width: 200px;
+    margin: 1rem;
+  }
+
+  h1 {
+    display: inline-block;
+    color: whitesmoke;
+    margin-top: 1.6rem;
+    vertical-align: top;
+  }
+}
+
+.navigation {
+  background: black;
+  padding: 0.8rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1.2rem;
+  }
+}
+
+.main {
+  padding: 0 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.footer {
+  color: gray;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+}

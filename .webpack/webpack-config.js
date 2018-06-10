@@ -1,5 +1,6 @@
 const resolve = require('./webpack-resolve');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 const webpackConfig = {
@@ -83,9 +84,14 @@ const webpackConfig = {
     ],
   },
   plugins: [
+    // Copy assets to build folder
+    new CopyWebpackPlugin([
+      'assets/images/*',
+    ]),
     // Configure HTML template
     new HtmlWebpackPlugin({
       title: 'F1 Stats',
+      favicon: 'assets/favicon.ico',
       meta: {
         charset: {
           name: 'charset',

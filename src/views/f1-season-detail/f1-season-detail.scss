@@ -1,0 +1,63 @@
+.f1-season-detail {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      tr {
+        border-left-color: white;
+
+        th {
+          background-color: white;
+          color: dimgray;
+          font-size: 0.8rem;
+          text-align: left;
+          text-transform: uppercase;
+          padding: 1rem 0 1rem 0.5rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-left: 5px solid transparent;
+
+        &:nth-child(even) {
+          background: #ddd;
+          border-left-color: #ddd;
+        }
+
+        &:nth-child(odd) {
+          background: #eee;
+          border-left-color: #eee;
+        }
+
+        &.champion {
+          border-left-color: #e00;
+        }
+
+        td {
+          color: gray;
+          padding: 1.25rem 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.trophy {
+  opacity: 0.15;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 2.5rem;
+
+  + span {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+
+    small {
+      color: gray;
+    }
+  }
+}
