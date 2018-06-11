@@ -15,8 +15,10 @@ $font_path: '../assets/fonts';
 @include font-face('SquadaOne', '#{$font_path}/squada-one-regular');
 
 body {
+  background: url(/assets/images/background.jpg) 50% top fixed no-repeat;
   font-family: Titillium, sans-serif;
   padding: 0;
+
   width: 100%;
   height: 100%;
 }

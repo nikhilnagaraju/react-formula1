@@ -8,6 +8,7 @@
     perspective: 1000px;
 
     li {
+      background: rgba(255, 255, 255, 0.8);
       border-bottom: 3px solid transparent;
       box-sizing: border-box;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -21,7 +22,7 @@
 
       &:hover {
         border-bottom-color: #333;
-        transform: scale(1.15);
+        transform: scale(1.2);
       }
 
       h1.date {

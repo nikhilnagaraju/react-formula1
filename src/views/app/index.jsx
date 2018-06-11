@@ -13,6 +13,7 @@ export const App = () => (
     <Provider store={store}>
       <Router>
         <Fragment>
+          <div className={styles.overlay} />
           <header className={styles.header}>
             <div>
               <Image src="/assets/images/f1_logo.svg" alt="Formula 1" />
