@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
+const isProduction = () => process.env.NODE_ENV === 'production';
+
 const webpackConfig = {
+  mode: isProduction() ? 'production' : 'development',
   devServer: {
     compress: true,
     hot: true,
@@ -15,7 +18,7 @@ const webpackConfig = {
   },
   devtool: 'eval-source-map',
   output: {
-    publicPath: '/',
+    publicPath: isProduction() ? '/react-formula1' : '/',
   },
   module: {
     rules: [

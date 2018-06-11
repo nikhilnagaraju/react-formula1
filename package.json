@@ -9,10 +9,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "webpack --config .webpack/webpack-config.js --mode production",
+    "build": "NODE_ENV=production webpack --config .webpack/webpack-config.js",
     "deploy": "gh-pages -d dist",
     "lint": "eslint --ext .js,.jsx ./src",
-    "start": "webpack-dev-server --config .webpack/webpack-config.js --mode development",
+    "start": "NODE_ENV=development webpack-dev-server --config .webpack/webpack-config.js",
     "test": "jest --config .jest/jest-config.js"
   },
   "dependencies": {
