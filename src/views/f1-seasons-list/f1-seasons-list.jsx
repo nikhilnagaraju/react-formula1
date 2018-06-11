@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FlashMessage } from 'components/flash-message';
 import { Image } from 'components/image';
+import { Loader } from 'components/loader';
 import styles from './f1-seasons-list.scss';
 
 type Props = {
   getSeasons: Function,
   seasons: Array,
+  seasonsCount: Number,
 }
 
 export class F1SeasonsList extends Component<Props> {
@@ -17,7 +19,12 @@ export class F1SeasonsList extends Component<Props> {
   }
 
   render() {
-    const { seasons } = this.props;
+    const { seasons, seasonsCount } = this.props;
+
+    if (seasonsCount !== Object.keys(seasons).length) {
+      return <Loader>Fetching season data...</Loader>;
+    }
+
     return (
       <section className={styles['f1-seasons-list']}>
         <h2>F1 Seasons</h2>

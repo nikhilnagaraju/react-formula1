@@ -7,7 +7,7 @@ import { F1SeasonDetail } from './';
 
 const mapStateToProps = (state, ownProps) => ({
   races: state.f1Races,
-  season: state.f1Seasons[ownProps.match.params.year],
+  season: state.f1Seasons.seasons[ownProps.match.params.year],
 });
 
 const mapDispatchToProps = dispatch => ({

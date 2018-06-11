@@ -21,7 +21,7 @@ const getRacesSuccessAction = races => ({ type: GET_RACES_SUCCESS, races });
  */
 const getRacesFailedAction = error => ({ type: GET_RACES_FAILED, data: { error } });
 
-const truncateRacesAction = error => ({ type: TRUNCATE_RACES });
+const truncateRacesAction = () => ({ type: TRUNCATE_RACES });
 
 /**
  * Action to fetch race data from the Ergast API.
