@@ -1,0 +1,60 @@
+.loader {
+  margin: 0 auto;
+  padding: 3rem;
+  text-align: center;
+}
+
+.spinner {
+  $size: 120px;
+  $thickness: 2px;
+
+  animation: rotate 2s linear infinite;
+  border-radius: 50%;
+  border: $thickness solid transparent;
+  border-top-color: #e00;
+  display: block;
+  margin: 3rem 0 3rem calc(#{$size} / -2);
+  position: relative;
+
+  left: 50%;
+  top: 50%;
+  width: $size;
+  height: $size;
+
+  &:before {
+    animation: rotate 3s linear infinite;
+    border-radius: 50%;
+    border: $thickness solid transparent;
+    border-top-color: #333;
+    content: '';
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+  }
+
+  &:after {
+    animation: rotate 3.5s linear infinite;
+    border-radius: 50%;
+    border: $thickness solid transparent;
+    border-top-color: dimgray;
+    content: '';
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Image } from 'components/image';
+import { Loader } from 'components/loader';
 import styles from './f1-season-detail.scss';
 
 type Props = {
@@ -26,6 +27,10 @@ class F1SeasonDetailComponent extends Component<Props> {
       match: { params: { year } },
     } = this.props;
 
+    if (!races.length) {
+      return <Loader>Fetching race data...</Loader>;
+    }
+
     return (
       <section className={styles['f1-season-detail']}>
         <h2>F1 Race Winners - {year}</h2>
@@ -45,7 +50,7 @@ class F1SeasonDetailComponent extends Component<Props> {
             </tr>
           </thead>
           <tbody>
-            {races.length && races.map((race) => {
+            {races.map((race) => {
               const winner = race.Results[0].Driver;
               const circuit = race.Circuit;
               return (

@@ -4,6 +4,7 @@ import { config } from 'config';
 
 export const GET_RACES_SUCCESS = 'GET_RACES_SUCCESS';
 export const GET_RACES_FAILED = 'GET_RACES_FAILED';
+export const TRUNCATE_RACES = 'TRUNCATE_RACES';
 
 /**
  * Extracts seasons from response data.
@@ -20,10 +21,13 @@ const getRacesSuccessAction = races => ({ type: GET_RACES_SUCCESS, races });
  */
 const getRacesFailedAction = error => ({ type: GET_RACES_FAILED, data: { error } });
 
+const truncateRacesAction = error => ({ type: TRUNCATE_RACES });
+
 /**
  * Action to fetch race data from the Ergast API.
  */
 export const getRacesAction = (year: string) => ((dispatch) => {
+  dispatch(truncateRacesAction());
   if (!localStorage.f1Races) localStorage.f1Races = '{}';
 
   const storage = JSON.parse(localStorage.f1Races);
