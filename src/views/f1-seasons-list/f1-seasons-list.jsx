@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FlashMessage } from 'components/flash-message';
+import { Image } from 'components/image';
 import styles from './f1-seasons-list.scss';
 
 type Props = {
@@ -29,7 +30,7 @@ export class F1SeasonsList extends Component<Props> {
                 <Link to={`/season/${season}`}>
                   <h1 className={styles.date}>{season}</h1>
                   <span>{driver.givenName} {driver.familyName}</span>
-                  <img src={`/assets/images/${driver.driverId}.png`} alt={driver.driverId} />
+                  <Image src={`/assets/images/${driver.driverId}.png`} alt={driver.driverId} />
                   <small>{driver.nationality}</small>
                 </Link>
               </li>

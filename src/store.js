@@ -3,6 +3,10 @@ import thunk from 'redux-thunk';
 import { f1SeasonsReducer } from 'reducers/f1-seasons';
 import { f1RacesReducer } from 'reducers/f1-races';
 
+/**
+ * Create and export Redux store
+ * @namespace window.__REDUX_DEVTOOLS_EXTENSION__
+ */
 export const store = createStore(
   combineReducers({
     f1Seasons: f1SeasonsReducer,

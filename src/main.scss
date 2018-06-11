@@ -1,18 +1,18 @@
 $font_path: '../assets/fonts';
 
-@font-face {
-  font-family: 'Titillium';
-  src: url('#{$font_path}/titillium-web-regular.woff2') format('woff2'),
-  url('#{$font_path}/titillium-web-regular.woff') format('woff'),
-  url('#{$font_path}/titillium-web-regular.ttf') format('truetype');
+@mixin font-face($name, $file, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url('../fonts/#{$file}.woff') format('woff'),
+    url('../fonts/#{$file}.woff2') format('woff2'),
+    url('../fonts/#{$file}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
 }
 
-@font-face {
-  font-family: 'SquadaOne';
-  src: url('#{$font_path}/squada-one-regular.woff2') format('woff2'),
-  url('#{$font_path}/squada-one-regular.woff') format('woff'),
-  url('#{$font_path}/squada-one-regular.ttf') format('truetype');
-}
+@include font-face('Titillium', '#{$font_path}/titillium-web-regular');
+@include font-face('SquadaOne', '#{$font_path}/squada-one-regular');
 
 body {
   font-family: Titillium, sans-serif;

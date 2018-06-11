@@ -34,7 +34,7 @@ class F1SeasonDetailComponent extends Component<Props> {
     return (
       <section className={styles['f1-season-detail']}>
         <h2>F1 Race Winners - {year}</h2>
-        <img className={styles.trophy} src="/assets/images/trophy.svg" alt="Champion trophy" />
+        <Image className={styles.trophy} src="/assets/images/trophy.svg" alt="Champion trophy" />
         <span>
           {champion.givenName} {champion.familyName}
           <br />

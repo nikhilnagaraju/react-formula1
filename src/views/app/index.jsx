@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
+import { Image } from 'components/image';
+import { store } from 'store';
 import { F1SeasonsListConnected } from 'views/f1-seasons-list';
 import { F1SeasonDetailConnected } from 'views/f1-season-detail';
 import { NotFound } from 'views/not-found';
-import { store } from 'store';
 import styles from './app.scss';
 
 export const App = () => (
@@ -14,7 +15,7 @@ export const App = () => (
         <Fragment>
           <header className={styles.header}>
             <div>
-              <img src="/assets/images/f1_logo.svg" alt="Formula 1" />
+              <Image src="/assets/images/f1_logo.svg" alt="Formula 1" />
               <h1>Formula 1 Statistics</h1>
             </div>
           </header>

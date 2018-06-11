@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { config } from 'config';
 
 const Props = {
   alt: String,
@@ -29,8 +30,9 @@ export class Image extends Component<Props> {
   render() {
     return (
       <img
+        {...this.props}
         onError={this.onError}
-        src={this.state.error ? this.props.fallback : this.state.src}
+        src={`${config.resolveBasename()}${this.state.error ? this.props.fallback : this.state.src}`}
         alt={this.props.alt}
       />
     );
