@@ -1,1 +1,1 @@
-export { FlashMessage } from './flash-message.component';
+export { FlashMessage } from './flash-message';

@@ -60,8 +60,8 @@ class F1SeasonDetailComponent extends Component<Props> {
                 >
                   <td>
                     <Image
-                      src={`/assets/images/${winner.driverId}.png`}
-                      fallback='/assets/images/default.svg'
+                      src={`/assets/images/drivers/${winner.driverId}.png`}
+                      fallback="/assets/images/default.svg"
                     />
                     <p>
                       <span>{winner.givenName} {winner.familyName}</span>

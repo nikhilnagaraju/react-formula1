@@ -1,3 +1,4 @@
+// @flow
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { f1SeasonsReducer } from 'reducers/f1-seasons';

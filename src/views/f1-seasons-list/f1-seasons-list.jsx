@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FlashMessage } from 'components/flash-message';
 import { Image } from 'components/image';
 import { Loader } from 'components/loader';
+import { flags } from 'config';
 import styles from './f1-seasons-list.scss';
 
 type Props = {
@@ -37,8 +38,16 @@ export class F1SeasonsList extends Component<Props> {
                 <Link to={`/season/${season}`}>
                   <h1 className={styles.date}>{season}</h1>
                   <span>{driver.givenName} {driver.familyName}</span>
-                  <Image src={`/assets/images/${driver.driverId}.png`} alt={driver.driverId} />
-                  <small>{driver.nationality}</small>
+                  <Image
+                    className={styles.portrait}
+                    src={`/assets/images/drivers/${driver.driverId}.png`}
+                    alt={driver.driverId}
+                  />
+                  <Image
+                    className={styles.flag}
+                    src={`/assets/images/flags/${flags[driver.nationality.toLowerCase()]}.png`}
+                    alt={driver.driverId}
+                  />
                 </Link>
               </li>
             );

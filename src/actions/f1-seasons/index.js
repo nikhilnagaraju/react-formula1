@@ -1,3 +1,4 @@
+// @flow
 export {
   GET_SEASONS_FAILED,
   GET_SEASONS_SUCCESS,

@@ -1,3 +1,4 @@
+// @flow
 export {
   GET_RACES_FAILED,
   GET_RACES_SUCCESS,

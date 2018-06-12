@@ -1,3 +1,4 @@
+// @flow
 import { connect } from 'react-redux';
 import { getSeasonsAction } from 'actions/f1-seasons';
 import { F1SeasonsList } from './';

@@ -21,6 +21,9 @@ const getRacesSuccessAction = races => ({ type: GET_RACES_SUCCESS, races });
  */
 const getRacesFailedAction = error => ({ type: GET_RACES_FAILED, data: { error } });
 
+/**
+ * Action dispatched to truncate race data from the store
+ */
 const truncateRacesAction = () => ({ type: TRUNCATE_RACES });
 
 /**
