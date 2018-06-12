@@ -24,6 +24,7 @@ export const App = () => (
           <nav className={styles.navigation}>
             <div>
               <Link to="/seasons">Seasons List</Link>
+              <Link to={`/season/${(new Date()).getFullYear()}`}>Current Season</Link>
             </div>
           </nav>
           <main className={styles.main}>

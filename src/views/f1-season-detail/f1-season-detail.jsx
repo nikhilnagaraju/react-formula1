@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Image } from 'components/image';
 import { Loader } from 'components/loader';
-import styles from './f1-season-detail.scss';
 import { flags } from 'config';
+import styles from './f1-season-detail.scss';
 
 type Props = {
   match: { params: { year: string } },
@@ -19,6 +19,13 @@ class F1SeasonDetailComponent extends Component<Props> {
     super(props);
     props.getRaceData(props.match.params.year);
     props.getSeasons();
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.match.params.year !== this.props.match.params.year) {
+      this.props.getRaceData(nextProps.match.params.year);
+    }
+    return true;
   }
 
   render() {
