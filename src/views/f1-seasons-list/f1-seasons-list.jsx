@@ -48,6 +48,7 @@ export class F1SeasonsList extends Component<Props> {
                     src={`/assets/images/flags/${flags[driver.nationality.toLowerCase()]}.png`}
                     alt={driver.driverId}
                   />
+                  <span className={styles.number}>{driver.permanentNumber}</span>
                 </Link>
               </li>
             );
