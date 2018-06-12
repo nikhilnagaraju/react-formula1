@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Image } from 'components/image';
 import { Loader } from 'components/loader';
 import styles from './f1-season-detail.scss';
+import { flags } from 'config';
 
 type Props = {
   match: { params: { year: string } },
@@ -43,6 +44,7 @@ class F1SeasonDetailComponent extends Component<Props> {
         <table>
           <thead>
             <tr>
+              <th>#</th>
               <th>Driver / Nationality</th>
               <th>Location / Track</th>
               <th>Laps</th>
@@ -58,15 +60,23 @@ class F1SeasonDetailComponent extends Component<Props> {
                   key={race.raceName}
                   className={champion.driverId === winner.driverId ? styles.champion : ''}
                 >
+                  <td className={styles.number}>
+                    <span>{winner.permanentNumber || '-'}</span>
+                  </td>
                   <td>
                     <Image
+                      className={styles.portrait}
                       src={`/assets/images/drivers/${winner.driverId}.png`}
                       fallback="/assets/images/default.svg"
                     />
                     <p>
                       <span>{winner.givenName} {winner.familyName}</span>
                       <br />
-                      <small>{winner.nationality}</small>
+                      <Image
+                        className={styles.flag}
+                        src={`/assets/images/flags/${flags[winner.nationality.toLowerCase()]}.png`}
+                        alt={winner.driverId}
+                      />
                     </p>
                   </td>
                   <td>
