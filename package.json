@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
-  "version": "0.0.1",
-  "description": "React boilerplate project",
+  "version": "1.0.0",
+  "description": "Formula 1 statistics",
   "main": "app.js",
   "repository": "https://github.com/sparkbuzz/react-boilerplate",
   "author": "Josef van Niekerk <josef.van.niekerk@gmail.com>",
