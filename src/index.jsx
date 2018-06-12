@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { config } from 'config';
+
 import { App } from 'views/app';
 import 'normalize.css';
 import './main.scss';
@@ -13,6 +15,8 @@ if (!targetElement) {
   targetElement.id = 'app';
   document.body.insertAdjacentElement('afterbegin', targetElement);
 }
+
+document.body.style.backgroundImage = `url(${config.resolveBasename()}/assets/images/background.jpg)`;
 
 ReactDOM.render(<App />, targetElement);
 

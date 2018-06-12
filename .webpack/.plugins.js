@@ -6,7 +6,7 @@ module.exports = {
   plugins: [
     // Copy assets to build folder
     new CopyWebpackPlugin([
-      'assets/images/*',
+      'assets/images/**',
     ]),
     // Configure HTML template
     new HtmlWebpackPlugin({
