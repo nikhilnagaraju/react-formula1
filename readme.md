@@ -1,4 +1,4 @@
-# F1 Statistics
+# F1 Statistics [![Build Status](https://travis-ci.com/sparkbuzz/react-formula1.svg?branch=master)](https://travis-ci.com/sparkbuzz/react-formula1)
 
 This app displays some Formula 1 racing statistics, using the [Ergast Developer API](http://ergast.com/mrd/).
 
