@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { Image } from 'components/image';
 import { Loader } from 'components/loader';
 import { flags } from 'config';
@@ -10,6 +10,7 @@ type Props = {
   match: { params: { year: string } },
   races: Array,
   season: Object,
+  seasons: Object,
   getRaceData: Function,
   getSeasons: Function,
 }
@@ -31,6 +32,7 @@ class F1SeasonDetailComponent extends Component<Props> {
   render() {
     const {
       races,
+      seasons,
       season: { driver: champion } = { driver: '' },
       match: { params: { year } },
     } = this.props;
@@ -48,59 +50,66 @@ class F1SeasonDetailComponent extends Component<Props> {
           <br />
           <small>{champion.nationality}</small>
         </span>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Driver / Nationality</th>
-              <th>Location / Track</th>
-              <th>Laps</th>
-              <th>Race Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {races.map((race) => {
-              const winner = race.Results[0].Driver;
-              const circuit = race.Circuit;
-              return (
-                <tr
-                  key={race.raceName}
-                  className={champion.driverId === winner.driverId ? styles.champion : ''}
-                >
-                  <td className={styles.number}>
-                    <span>{winner.permanentNumber || '-'}</span>
-                  </td>
-                  <td>
-                    <Image
-                      className={styles.portrait}
-                      src={`/assets/images/drivers/${winner.driverId}.png`}
-                      fallback="/assets/images/default.svg"
-                    />
-                    <p>
-                      <span>{winner.givenName} {winner.familyName}</span>
-                      <br />
+        <div className={styles['flex-container']}>
+          <aside>
+            {Object.keys(seasons.seasons).map(yr =>
+              <NavLink activeClassName={styles.active} key={yr} to={`/season/${yr}`}>{yr}</NavLink>)
+            }
+          </aside>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Driver / Nationality</th>
+                <th>Location / Track</th>
+                <th>Laps</th>
+                <th>Race Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {races.map((race) => {
+                const winner = race.Results[0].Driver;
+                const circuit = race.Circuit;
+                return (
+                  <tr
+                    key={race.raceName}
+                    className={champion.driverId === winner.driverId ? styles.champion : ''}
+                  >
+                    <td className={styles.number}>
+                      <span>{winner.permanentNumber || '-'}</span>
+                    </td>
+                    <td>
                       <Image
-                        className={styles.flag}
-                        src={`/assets/images/flags/${flags[winner.nationality.toLowerCase()]}.png`}
-                        alt={winner.driverId}
+                        className={styles.portrait}
+                        src={`/assets/images/drivers/${winner.driverId}.png`}
+                        fallback="/assets/images/default.svg"
                       />
-                    </p>
-                  </td>
-                  <td>
-                    {race.raceName}
-                    <br />
-                    <small>{circuit.circuitName}</small>
-                  </td>
-                  <td>
-                    {/* Cheating a bit, using the winners lap count */}
-                    {race.Results[0].laps}
-                  </td>
-                  <td>{race.date}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                      <p>
+                        <span>{winner.givenName} {winner.familyName}</span>
+                        <br />
+                        <Image
+                          className={styles.flag}
+                          src={`/assets/images/flags/${flags[winner.nationality.toLowerCase()]}.png`}
+                          alt={winner.driverId}
+                        />
+                      </p>
+                    </td>
+                    <td>
+                      {race.raceName}
+                      <br />
+                      <small>{circuit.circuitName}</small>
+                    </td>
+                    <td>
+                      {/* Cheating a bit, using the winners lap count */}
+                      {race.Results[0].laps}
+                    </td>
+                    <td>{race.date}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
     );
   }

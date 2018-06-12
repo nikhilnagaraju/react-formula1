@@ -1,4 +1,33 @@
 .f1-season-detail {
+  .flex-container {
+    display: flex;
+
+    aside {
+      padding: 2.5rem 2rem 0 0;
+      text-align: center;
+      width: 100px;
+
+      a {
+        color: #333;
+        display: block;
+        font-family: SquadaOne, sans-serif;
+        font-size: 2rem;
+        line-height: 3rem;
+        text-decoration: none;
+        transition: all .15s ease-in-out;
+
+        &:hover {
+          color: #e00;
+        }
+
+        &.active {
+          color: #e00;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
   table {
     width: 100%;
 
