@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { Image } from 'components/image';
 import { Loader } from 'components/loader';
@@ -44,12 +44,17 @@ class F1SeasonDetailComponent extends Component<Props> {
     return (
       <section className={styles['f1-season-detail']}>
         <h2>F1 Race Winners - {year}</h2>
-        <Image className={styles.trophy} src="/assets/images/trophy.svg" alt="Champion trophy" />
-        <span>
-          {champion.givenName} {champion.familyName}
-          <br />
-          <small>{champion.nationality}</small>
-        </span>
+        {((new Date()).getFullYear().toString() !== year) && (
+          <Fragment>
+            <Image className={styles.trophy} src="/assets/images/trophy.svg" alt="Champion trophy" />
+            <span>
+              {champion.givenName} {champion.familyName}
+              <br />
+              <small>{champion.nationality}</small>
+            </span>
+          </Fragment>
+        )}
+
         <div className={styles['flex-container']}>
           <aside>
             {Object.keys(seasons.seasons).map(yr =>

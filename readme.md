@@ -2,6 +2,28 @@
 
 This app displays some Formula 1 racing statistics, using the [Ergast Developer API](http://ergast.com/mrd/).
 
+# About the app
+
+The application fetches data from the Ergast Developer API and caches data in the browsers local storage. Successive 
+fetches are done from local storage, thus preventing any possible rate limiting imposed by the API. 
+This also helps improve application performance.
+
+# Architecture
+
+The primary project stack includes:
+
+  - React 16.4
+  - Redux 4
+  - WebPack 4 + Babel
+  - Jest + Enzyme
+  
+Source code style guid uses a relaxed version of the AirBNB coding standard.
+
+# Demo
+
+The project is built and deployed to GitHub Pages, and can be viewed at 
+https://sparkbuzz.github.io/react-formula1
+
 # Yarn/NPM scripts
 
 The following Yarn scripts are a available for this project.
