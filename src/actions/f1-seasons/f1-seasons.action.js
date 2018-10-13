@@ -38,8 +38,8 @@ export const getSeasonsAction = () => ((dispatch) => {
     // Set number of seasons to be displayed
     const renderSeasons = 11;
     // Calculate offset to display only the last few seasons except current season
-    let currentDate = new Date(),
-        offsetYears = (currentDate.getFullYear() - renderSeasons) - 1950;
+    const currentDate = new Date();
+    const offsetYears = (currentDate.getFullYear() - renderSeasons) - 1950;
     // Fetch data from Ergast API
     fetch(`${config.endpoint}/seasons.json?limit=11&offset=${offsetYears}`)
       .then((response) => {
