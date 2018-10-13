@@ -35,8 +35,13 @@ export const getSeasonsAction = () => ((dispatch) => {
     const data = JSON.parse(localStorage.f1Seasons);
     dispatch(getSeasonsSuccessAction(extractSeasons(data)));
   } else {
+    // Set number of seasons to be displayed
+    const renderSeasons = 11;
+    // Calculate offset to display only the last few seasons except current season
+    let currentDate = new Date(),
+        offsetYears = (currentDate.getFullYear() - renderSeasons) - 1950;
     // Fetch data from Ergast API
-    fetch(`${config.endpoint}/seasons.json?limit=11&offset=55`)
+    fetch(`${config.endpoint}/seasons.json?limit=11&offset=${offsetYears}`)
       .then((response) => {
         if (!response.ok || response.status >= 400) {
           return Promise.reject(Error('Unable to fetch F1 seasons from the Ergast API'));
